@@ -44,6 +44,14 @@
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
     </div>
+    <div class="mb-3">
+      <label for="type_id" class="form-label">Seleziona un tipo</label>
+      <select class="form-select" aria-label="Default select example" name="type_id">
+        @foreach ($types as $type)
+        <option value="{{ $type->id }}">{{ $type->name }}</option>
+        @endforeach
+      </select>
+    </div>
 
     <button type="submit" class="btn btn-primary">Crea</button>
     <button type="reset" class="btn btn-secondary">Cancella</button>
