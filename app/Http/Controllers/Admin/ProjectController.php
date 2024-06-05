@@ -33,13 +33,15 @@ class ProjectController extends Controller
     {
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug(Project::class, $form_data['title']);
-        if ($request->hasFile('screenshot')) {
+        if ($request->hasFile('image')) {
+            //dd($request->image);
             //in realtà in questo caso la if non servirebbe perchè il campo screenshot è required, però la scrivo per fare la funzione nel caso generale
             $name = $request->image->getClientOriginalName();
             $path = Storage::putFileAs('project_screenshots', $request->image, $name);
             //il metodo putFileAs crea una cartella 'project_screenshots' in storage e salva l'immagine
             //il metodo poi ritorna il path, che andremo a salvare sul db, tabella projects nel campo image
-            $project->image = $path;
+            $form_data['screenshot'] = $path;
+            //dd($form_data);
         }
 
         $project->create($form_data);
