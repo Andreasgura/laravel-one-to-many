@@ -6,5 +6,11 @@
     <div >
         <img class="w-75" src="{{asset('storage/' . $project->screenshot)}}" alt="">
     </div>    
+    <a href="{{ $project->link_github }}">Vedi su GitHub</a>
+    <br>
+    <a href="{{ $project->link_website }}">Vai al sito</a>
+    <div>
+        <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna alla lista</a>
+    </div>
 </section>
 @endsection
