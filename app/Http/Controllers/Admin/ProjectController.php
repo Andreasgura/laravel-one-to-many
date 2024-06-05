@@ -31,7 +31,6 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request, Project $project)
     {
-        dd('ciao');
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug(Project::class, $form_data['title']);
         if ($request->hasFile('screenshot')) {
