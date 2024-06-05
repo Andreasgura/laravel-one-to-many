@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Project;
 use App\Http\Requests\Auth\StoreProjectRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -30,6 +31,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request, Project $project)
     {
+        dd('ciao');
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug(Project::class, $form_data['title']);
         if ($request->hasFile('screenshot')) {
@@ -66,7 +68,7 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(StoreProjectRequest $request, Project $project)
     {
         //
     }

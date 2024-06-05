@@ -21,9 +21,10 @@ class StoreProjectRequest extends FormRequest
      */
     public function rules(): array
     {
+        dd('validazione');
         return [
             "title"=> "required|string|max:50",
-            "description"=> "required|text",
+            "description"=> "required|string",
             "screenshot"=> "required|image|max:200",
             "link_github"=> "required|url|max:200",
             "link_website"=> "required|url|max:200",
