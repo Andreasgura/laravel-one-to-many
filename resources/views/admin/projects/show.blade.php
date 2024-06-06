@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <section class="container">
+
     <h1>{{ $project->title }}</h1>
+    <div class="mb-3 h2" >
+       Linguaggio utilizzato: {{$project->type->name}}
+    </div>
     <p>{{ $project->description }}</p>
     <div >
         <img class="w-75" src="{{asset('storage/' . $project->screenshot)}}" alt="">

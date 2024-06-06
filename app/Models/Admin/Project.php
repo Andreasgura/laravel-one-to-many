@@ -21,7 +21,7 @@ class Project extends Model
         return $slug;
     }
 
-    public function types()
+    public function type()
     {
         return $this->belongsTo(Type::class);
     }
